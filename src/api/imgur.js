@@ -22,4 +22,18 @@ export default {
       },
     });
   },
+
+  uploadImages(images, accessToken) {
+    const promises = Array.from(images).map((image) => {
+      const formData = new FormData();
+      formData.append('image', image);
+      return axios.post(`${ROOT_URL}/3/image`, formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+    });
+
+    return Promise.all(promises);
+  },
 };
