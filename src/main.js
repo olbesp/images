@@ -7,7 +7,7 @@ import store from './store';
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes: [
     {
